@@ -1,17 +1,24 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+// let inp = prompt('Enter your name');
+let currentDate = new Date();
+currentDate = currentDate.getHours();
+let greeting = '';
+if (currentDate >= 1 && currentDate < 12) {
+  greeting = 'Good Morning';
+} else if (currentDate >= 12 && currentDate < 19) {
+  greeting = 'good AfterNoon';
+} else {
+  greeting = 'good Evening';
+}
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+ReactDOM.render(
+  <div>
+  <h1>
+    Hello  {greeting}
+  </h1>,
+  </div>,
+
+  document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
